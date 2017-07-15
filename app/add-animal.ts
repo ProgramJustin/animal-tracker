@@ -7,3 +7,4 @@ class Animal {
 }
 var animals: Animal[] = [];
 animals.push(new Animal('Giraffe', 'Jeffrey', 1, 'leaves and bananas', 'Africa', 4, 'male', 'apples', 'The Rain'));
+console.log(animals);
