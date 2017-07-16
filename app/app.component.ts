@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
   <div class="container">
     <h1>hi</h1>
     <ul>
-      <li [class]="priorityAge(currentAnimal)" *ngFor="let currentAnimal of animals">{{currentAnimal.species}}  {{currentAnimal.name}}</li>
-      <button (click)="editAnimal()">Edit!</button>
+      <li [class]="priorityAge(currentAnimal)" *ngFor="let currentAnimal of animals">{{currentAnimal.species}}  {{currentAnimal.name}} <button (click)="editAnimal(currentAnimal)">Edit!</button></li>
+
     </ul>
   <div>
 
@@ -36,8 +36,8 @@ export class AppComponent {
   ];
   selectedAnimal: Animal = this.animals[0];
 
-  editAnimal() {
-    alert("you");
+  editAnimal(clickedAnimal) {
+    this.selectedAnimal = clickedAnimal;
   }
   priorityAge(currentAnimal){
     if (currentAnimal.age === 3){
