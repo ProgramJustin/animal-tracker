@@ -30,6 +30,12 @@ import { Animal } from './animal.model';
 export class AppComponent {
   selectedAnimal: null;
 
+  masterAnimalList: Animal[] = [
+    new Animal('Giraffe', 'Jeffrey', 1, 'leaves and bananas', 'Africa', 4, 'male', 'apples', 'loud noises'),
+    new Animal('Snake', 'Kai', 1, 'Rats', 'India', 4, 'female', 'lounging', 'cold weather'),
+    new Animal('Reptile', 'Zilla', 2, 'fruits and veggies', 'Mexico', 4, 'male', 'Back Rubs', 'Iceburg Lettuce')
+  ];
+
   editAnimal(clickedAnimal) {
     this.selectedAnimal = clickedAnimal;
   }
