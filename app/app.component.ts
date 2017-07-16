@@ -19,9 +19,7 @@ import { Component } from '@angular/core';
     <input [(ngModel)]="selectedAnimal.name">
     <label>Enter Animal Priority (1-3):</label>
     <br>
-    <input type="radio" [(ngModel)]="selectedAnimal.age" [value]="1">1 (Low Priority)<br>
-    <input type="radio" [(ngModel)]="selectedAnimal.age" [value]="2">2 (Medium Priority)<br>
-    <input type="radio" [(ngModel)]="selectedAnimal.age" [value]="3">3 (High Priority)
+    
     <button (click)="finishedAdding()">Done</button>
     </div>
   </div>
