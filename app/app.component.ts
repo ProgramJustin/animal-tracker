@@ -7,23 +7,24 @@ import { Component } from '@angular/core';
   <div class="container">
     <h1>hi</h1>
     <ul>
-      <li [class]="priorityAge(currentAnimal)" *ngFor="let currentAnimal of animals">{{currentAnimal.species}}  {{currentAnimal.name}} <button (click)="editAnimal(currentAnimal)">Edit!</button></li>
-
+      <li [class]="priorityAge(currentAnimal)" *ngFor="let currentAnimal of animals">{{currentAnimal.name}} <br />
+      <button (click)="editAnimal(currentAnimal)">Edit!</button></li>
     </ul>
-  <div>
-
-  <h3>{{selectedAnimal.likes}}</h3>
-          <p>Animal Complete? {{selectedAnimal.added}}</p>
-          <h3>Edit Animal</h3>
-          <label>Enter Animal name:</label>
-          <input [(ngModel)]="selectedAnimal.name">
-          <label>Enter Animal Priority (1-3):</label>
-          <br>
-          <input type="radio" [(ngModel)]="selectedAnimal.age" [value]="1">1 (Low Priority)<br>
-          <input type="radio" [(ngModel)]="selectedAnimal.age" [value]="2">2 (Medium Priority)<br>
-          <input type="radio" [(ngModel)]="selectedAnimal.age" [value]="3">3 (High Priority)
-       </div>
-     </div>
+  <div class="well" *ngIf="selectedAnimal">
+    <h3>{{selectedAnimal.name}}</h3>
+    <h5>{{selectedAnimal.species}}</h5>
+    <p>Animal Complete? {{selectedAnimal.added}}</p>
+    <h3>Edit Animal</h3>
+    <label>Enter Animal name:</label>
+    <input [(ngModel)]="selectedAnimal.name">
+    <label>Enter Animal Priority (1-3):</label>
+    <br>
+    <input type="radio" [(ngModel)]="selectedAnimal.age" [value]="1">1 (Low Priority)<br>
+    <input type="radio" [(ngModel)]="selectedAnimal.age" [value]="2">2 (Medium Priority)<br>
+    <input type="radio" [(ngModel)]="selectedAnimal.age" [value]="3">3 (High Priority)
+    <button (click)="finishedAdding()">Done</button>
+    </div>
+  </div>
 
   `
 })
@@ -34,7 +35,7 @@ export class AppComponent {
     new Animal('Snake', 'Kai', 1, 'Rats', 'India', 4, 'female', 'lounging', 'cold weather'),
     new Animal('Reptile', 'Zilla', 2, 'fruits and veggies', 'Mexico', 4, 'male', 'Back Rubs', 'Iceburg Lettuce')
   ];
-  selectedAnimal: Animal = this.animals[0];
+  selectedAnimal: null;
 
   editAnimal(clickedAnimal) {
     this.selectedAnimal = clickedAnimal;
@@ -55,6 +56,9 @@ export class AppComponent {
     } else {
       alert("You did not add animal");
     }
+  }
+  finishedAdding() {
+    this.selectedAnimal = null;
   }
 
 
