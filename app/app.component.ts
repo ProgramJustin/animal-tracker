@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
   template: `
   <h1>hi</h1>
   <ul>
-       <li *ngFor="let currentAnimal of animals">{{currentAnimal.description}}</li>
+       <li *ngFor="let currentAnimal of animals">{{currentAnimal.species}}  {{currentAnimal.name}}</li>
+       <button (click)="editAnimal()">Edit!</button>
      </ul>
 
   `
@@ -17,6 +18,20 @@ export class AppComponent {
     new Animal('Snake', 'Kai', 1, 'Rats', 'India', 4, 'female', 'lounging', 'cold weather'),
     new Animal('Reptile', 'Zilla', 2, 'fruits and veggies', 'Mexico', 4, 'male', 'Back Rubs', 'Iceburg Lettuce')
   ];
+  selectedAnimal: Animal = this.animals[0];
+
+  editAnimal() {
+    alert("you");
+  }
+
+  isAdded(clickedAnimal: AppComponent) {
+    if(clickedAnimal.added === true) {
+      alert("You Added an animal!");
+    } else {
+      alert("You did not add animal");
+    }
+  }
+
 
 }
 
