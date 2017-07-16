@@ -6,7 +6,7 @@ import { Animal } from './animal.model';
   template: `
   <ul>
     <li [class]="priorityAge(currentAnimal)" *ngFor="let currentAnimal of childAnimalList">{{currentAnimal.name}} <br />
-    <button (click)="editAnimal(currentAnimal)">Edit!</button></li>
+    <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button></li>
   </ul>
   `
 })
@@ -14,6 +14,11 @@ import { Animal } from './animal.model';
 export class AnimalListComponent {
 
   @Input() childAnimalList: Animal[];
+  @Output() clickSender = new EventEmitter();
+
+  editButtonHasBeenClicked(animalToEdit: Animal) {
+    this.clickSender.emit(animalToEdit);
+  }
 
   isAdded(clickedAnimal: Animal) {
     if(clickedAnimal.added === true) {

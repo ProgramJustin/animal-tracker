@@ -36,8 +36,8 @@ export class AppComponent {
     new Animal('Reptile', 'Zilla', 2, 'fruits and veggies', 'Mexico', 4, 'male', 'Back Rubs', 'Iceburg Lettuce')
   ];
 
-  editAnimal(clickedAnimal) {
-    this.selectedAnimal = clickedAnimal;
+  editButtonHasBeenClicked(clickedAnimal) {
+    this.clickSender.emit(animalToEdit);
   }
 
   finishedAdding() {
