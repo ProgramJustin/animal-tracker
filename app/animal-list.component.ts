@@ -5,15 +5,33 @@ import { Animal } from './animal.model';
   selector: 'animal-list',
   template: `
   <ul>
-    <li "let currentAnimal of childAnimalList | age">
+    <li (click)="isAdded(currentAnimal)" *ngFor="let currentAnimal of childAnimalList">
     {{currentAnimal.name}} <br />
     {{currentAnimal.age}}
     <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button></li>
   </ul>
+
+
+  <select (change)="onChange($event.target.value)">
+      <option value="allAnimals">All </option>
+      <option value="completedAnimals">younger</option>
+      <option value="incompleteAnimals" selected="selected">not older</option>
+    </select>
+
+    <div>
+    <ul>
+      <li (click)="isAdded(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | age:filterByAge">{{currentAnimal.name}} {{currentAnimal.age}}
+        <input *ngIf="currentAnimal.added === true" type="checkbox" checked (click)="toggleDone(currentAnimal, false)"/>
+        <input *ngIf="currentAnimal.added === false" type="checkbox" (click)="toggleDone(currentAnimal, true)"/>
+        <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button>
+      </li>
+    </ul>
+    </div>
   `
 })
 
 export class AnimalListComponent {
+  filterByAge: string = "incompleteAnimal;";
 
   @Input() childAnimalList: Animal[];
   @Output() clickSender = new EventEmitter();
@@ -30,7 +48,8 @@ export class AnimalListComponent {
     }
   }
 
-  priorityAge(currentAnimal){
+  priorityAge(currentAnimal)
+  {
     if (currentAnimal.age === 3){
       return "bg-danger";
     } else if (currentAnimal.age === 2) {
@@ -39,6 +58,9 @@ export class AnimalListComponent {
       return "bg-info";
     }
   }
+  onChange(optionFromMenu) {
+  this.filterByAge = optionFromMenu;
+}
 
 
 }
