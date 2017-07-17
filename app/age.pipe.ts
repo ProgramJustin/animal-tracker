@@ -12,14 +12,14 @@ export class AgePipe implements PipeTransform {
     var output: Animal[] = [];
     if(desiredAge === "incompleteAnimals") {
      for (var i = 0; i < input.length; i++) {
-       if (input[i].added === false) {
+       if (input[i].age > 1) {
          output.push(input[i]);
        }
      }
      return output;
    } else if (desiredAge === "completedAnimals") {
      for (var i = 0; i < input.length; i++) {
-       if (input[i].added === true) {
+       if (input[i].age === 2) {
          output.push(input[i]);
        }
      }
