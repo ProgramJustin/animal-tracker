@@ -25,3 +25,7 @@ export class EditAnimalComponent {
   @Input() childSelectedAnimal: Animal;
   @Output() doneButtonClickSender = new EventEmitter();
 }
+
+doneButtonClicked() {
+    this.doneButtonClickedSender.emit();
+  }
