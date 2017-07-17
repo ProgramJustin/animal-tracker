@@ -4,13 +4,6 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'animal-list',
   template: `
-  <ul>
-    <li (click)="isAdded(currentAnimal)" *ngFor="let currentAnimal of childAnimalList">
-    {{currentAnimal.name}} <br />
-    {{currentAnimal.age}}
-    <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button></li>
-  </ul>
-
 
   <select (change)="onChange($event.target.value)">
       <option value="allAnimals">All </option>
