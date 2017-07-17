@@ -5,27 +5,28 @@ import { Animal } from './animal.model';
   selector: 'edit-animal',
   template: `
 
-  <div class="well" *ngIf="selectedAnimal">
-  <h3>{{selectedAnimal.name}}</h3>
-  <h5>{{selectedAnimal.species}}</h5>
-  <p>Animal Complete? {{selectedAnimal.added}}</p>
+  <div class="well" *ngIf="childSelectedAnimal">
+  <h3>{{childSelectedAnimal.name}}</h3>
+  <h5>{{childSelectedAnimal.species}}</h5>
+  <p>Animal Complete? {{childSelectedAnimal.added}}</p>
   <h3>Edit Animal</h3>
 
   <label>Enter Animal name:</label>
-  <input [(ngModel)]="selectedAnimal.name">
-  <label>Enter Animal Priority (1-3):</label>
-  <br>
+  <input [(ngModel)]="childSelectedAnimal.name">
+  <label>Enter Animal name:</label>
+  <input [(ngModel)]="childSelectedAnimal.age">
+  <br />
 
-  <button (click)="finishedAdding()">Done</button>
+  <button (click)="doneButtonClicked()">Done</button>
   </div>
   `
 })
 
 export class EditAnimalComponent {
   @Input() childSelectedAnimal: Animal;
-  @Output() doneButtonClickSender = new EventEmitter();
-}
+  @Output() doneButtonClickedSender = new EventEmitter();
 
-doneButtonClicked() {
+  doneButtonClicked() {
     this.doneButtonClickedSender.emit();
   }
+}

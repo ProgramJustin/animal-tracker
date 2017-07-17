@@ -7,11 +7,10 @@ import { Animal } from './animal.model';
   template: `
   <div class="container">
   <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>
-    <edit-animal [childSelectedAnimal]="selectedAnimal"></edit-animal>
 
+  <edit-animal [childSelectedAnimal]="selectedAnimal" (doneButtonClickSender)="finishedAdding()"></edit-animal>
 
   </div>
-
   `
 })
 
@@ -24,6 +23,9 @@ export class AppComponent {
     new Animal('Reptile', 'Zilla', 2, 'fruits and veggies', 'Mexico', 4, 'male', 'Back Rubs', 'Iceburg Lettuce')
   ];
 
+  editAnimal(clickedAnimal) {
+    this.selectedAnimal = clickedAnimal;
+  }
 
   finishedAdding() {
     this.selectedAnimal = null;
