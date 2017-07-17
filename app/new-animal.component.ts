@@ -4,12 +4,23 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'new-animal',
   template: `
-  <select #newAge>
-  <option [value]="1"> Younger Than 2 </option>
-  <option [value]="2"> 2 Years Old </option>
-  <option [value]="3"> Adults </option>
-  </select>
-  <button (click)="submitForm(newAge.value)">Add</button>
+  <form>
+  <label>Enter Animal species:</label>
+  <input type="text">
+  <label>Enter Animal name:</label>
+  <input type="text">
+  <label>Enter Animal age:</label>
+  <input type="text">
+  <label>Enter Animal location:</label>
+  <input type="text">
+  <label>Enter Animal sex:</label>
+  <input type="text">
+  <label>Enter Animal likes:</label>
+  <input type="text">
+  <label>Enter Animal dislikes:</label>
+  <input type="text">
+  <button (click)="submitForm()">Add</button>
+  </form>
 
   `
 })
