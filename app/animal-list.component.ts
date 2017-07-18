@@ -7,9 +7,9 @@ import { Animal } from './animal.model';
   <div class="row">
     <div class="col-md-12">
     <select (change)="onChange($event.target.value)">
-      <option value="allAnimals">All </option>
-      <option value="completedAnimals">younger</option>
-      <option value="incompleteAnimals" selected="selected">not older</option>
+      <option value="allAnimals" selected="selected">All</option>
+      <option value="completedAnimals">Older</option>
+      <option value="incompleteAnimals">Younger</option>
     </select>
       <div>
       <ul>

@@ -8,13 +8,12 @@ import { Animal } from './animal.model';
     <div class="row">
     <div class="col-md-12" *ngIf="childSelectedAnimal">
       <h3>{{childSelectedAnimal.name}}</h3>
-      <h5>{{childSelectedAnimal.species}}</h5>
-      <p>Animal Complete? {{childSelectedAnimal.added}}</p>
+      <h5>{{childSelectedAnimal.age}}</h5>
       <h3>Edit Animal</h3>
 
       <label>Enter Animal name:</label>
       <input [(ngModel)]="childSelectedAnimal.name">
-      <label>Enter Animal name:</label>
+      <label>Enter Animal age:</label>
       <input [(ngModel)]="childSelectedAnimal.age">
       <br />
 

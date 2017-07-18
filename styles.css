@@ -8,8 +8,29 @@
   display: flex;
   justify-content: flex-end;
 }
-.col-md-12 {
-  border: 2px solid red;
+
+.row{
+  /*padding: 20px;*/
+  background: #6A8A22;
+  color: black;
+  text-align: center;
+}
+.row button {
+  height: 50px;
+  width: 75px;
+  border-radius: 10px;
+  background: white;
+  border: none
+}
+#newAnimal {
+  display: block;
+  margin: 40px auto;
+  background: red;
+  color: white;
+}
+label {
+  color: white;
+  font-family: serif
 }
 ul {
   list-style: none;
