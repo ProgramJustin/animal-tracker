@@ -5,6 +5,9 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'app-root',
   template: `
+  <div class="header">
+    <h1>San Francisco Zoo Residents</h1>
+  <div>
   <div class="container">
   <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)"></animal-list>
 
