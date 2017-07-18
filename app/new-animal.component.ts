@@ -30,13 +30,9 @@ import { Animal } from './animal.model';
         <label>dislikes</label><br />
         <input type="text" #newDislikes><br />
       </div>
+        <button class="bg-info" (click)="submitForm(newSpecies.value, newName.value); newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretakes.value=''; newCaretakes.value=''; newSex.value=''; newLikes.value=''; newDislikes.value='';">Add</button>
     </div>
   </div>
-
-
-
-
-  <button class="bg-info" (click)="submitForm(newSpecies.value, newName.value); newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretakes.value=''; newCaretakes.value=''; newSex.value=''; newLikes.value=''; newDislikes.value='';">Add</button>
 
   `
 })
