@@ -14,7 +14,7 @@ import { Animal } from './animal.model';
       <div>
       <ul>
         <li (click)="isAdded(currentAnimal)" *ngFor="let currentAnimal of childAnimalList | age:filterByAge">{{currentAnimal.name}} {{currentAnimal.age}}
-          <input *ngIf="currentAnimal.added === true" type="checkbox" checked (click)="toggleDone(currentAnimal, false)"/>
+          <p *ngIf="currentAnimal.added === true" (click)="toggleDone(currentAnimal, false)"></p>
           <input *ngIf="currentAnimal.added === false" type="checkbox" (click)="toggleDone(currentAnimal, true)"/>
           <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button>
         </li>
